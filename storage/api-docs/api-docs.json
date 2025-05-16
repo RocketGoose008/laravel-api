@@ -1,0 +1,814 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documents",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/member/register": {
+            "post": {
+                "tags": [
+                    "Member"
+                ],
+                "summary": "Register new member",
+                "operationId": "23b02f85af10fcd61d677acb52a0c55c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "personal_id",
+                                    "firstname",
+                                    "lastname",
+                                    "username",
+                                    "email",
+                                    "phone_number",
+                                    "password",
+                                    "password_confirmation",
+                                    "language",
+                                    "accept_consent"
+                                ],
+                                "properties": {
+                                    "personal_id": {
+                                        "type": "string",
+                                        "example": "1198899232111"
+                                    },
+                                    "member_type": {
+                                        "type": "string",
+                                        "example": "internal,external"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Member"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "K"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "member_K"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "member_K@hotmail.com"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "0980000011"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "P@ssw0rd"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "P@ssw0rd"
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "format": "language",
+                                        "example": "THA"
+                                    },
+                                    "accept_consent": {
+                                        "type": "string",
+                                        "format": "accept_consent",
+                                        "example": "T"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Member registered successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "username": {
+                                                    "type": "string",
+                                                    "example": "member_K"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "member_K@hotmail.com"
+                                                },
+                                                "create_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-15 14:23:45"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Register failed"
+                    }
+                }
+            }
+        },
+        "/api/receiver/create": {
+            "post": {
+                "tags": [
+                    "Receiver"
+                ],
+                "summary": "Create new receiver",
+                "operationId": "822ebe838d9f319ee147ef866f280372",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "account_no",
+                                    "firstname",
+                                    "lastname",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "account_no": {
+                                        "type": "string",
+                                        "example": "0234245345"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Receiver"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "A"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "0812221111"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Create new receiver successfully"
+                                        },
+                                        "receiver": {
+                                            "properties": {
+                                                "account_no": {
+                                                    "type": "string",
+                                                    "example": "0234245345"
+                                                },
+                                                "fullname": {
+                                                    "type": "string",
+                                                    "example": "Receiver A"
+                                                },
+                                                "create_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-15 14:23:45"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Create failed"
+                    }
+                }
+            }
+        },
+        "/api/receiver/list": {
+            "post": {
+                "tags": [
+                    "Receiver"
+                ],
+                "summary": "Receiver List",
+                "operationId": "0f27ab282282b2ef8e905cac2fad2741",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "keyword": {
+                                        "description": "Search by account_no, phone_number, firstname, lastname, fullname",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "sort": {
+                                        "description": "Sort by firstname => value: asc,desc",
+                                        "type": "string",
+                                        "example": "asc"
+                                    },
+                                    "page": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "limit": {
+                                        "type": "integer",
+                                        "example": "10"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 12
+                                                }
+                                            },
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "account_no": {
+                                                        "type": "string",
+                                                        "example": "0234245345"
+                                                    },
+                                                    "firstname": {
+                                                        "type": "string",
+                                                        "example": "Receiver"
+                                                    },
+                                                    "lastname": {
+                                                        "type": "string",
+                                                        "example": "A"
+                                                    },
+                                                    "phone_number": {
+                                                        "type": "string",
+                                                        "example": "0812221111"
+                                                    },
+                                                    "create_date": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-15 14:23:45"
+                                                    },
+                                                    "update_date": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-15 14:23:45"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Not found data"
+                    }
+                }
+            }
+        },
+        "/api/sell_orders/create": {
+            "post": {
+                "tags": [
+                    "Sell Orders"
+                ],
+                "summary": "Create Sell Orders",
+                "operationId": "b4f2a438a9ffefac28ec981511cfc8a2",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "member_id",
+                                    "token_type",
+                                    "amount",
+                                    "per_price"
+                                ],
+                                "properties": {
+                                    "member_id": {
+                                        "type": "string",
+                                        "example": "abc527bd-79d0-4799-a883-9c7257990d3b"
+                                    },
+                                    "token_type": {
+                                        "type": "string",
+                                        "example": "BTC,ETH,XRP,DOGE"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "per_price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 1999.99
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "9390cea0-6fa6-41f3-a003-b5c3fb69db3a"
+                                                },
+                                                "create_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-16 11:35:59"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Create sale order failed"
+                    }
+                }
+            }
+        },
+        "/api/sell_orders/list": {
+            "post": {
+                "tags": [
+                    "Sell Orders"
+                ],
+                "summary": "Sell Orders List",
+                "operationId": "a5bf6a976f1e6675cc3c1a0f0fc4787c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "keyword": {
+                                        "type": "string",
+                                        "example": "Search by id"
+                                    },
+                                    "sort_by": {
+                                        "type": "string",
+                                        "example": "per_price,update_date"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "example": "asc,desc"
+                                    },
+                                    "page": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "limit": {
+                                        "type": "integer",
+                                        "example": "10"
+                                    },
+                                    "token_type": {
+                                        "type": "string",
+                                        "example": "BTC,ETH,XRP,DOGE"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 2
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "sell_orders_id": {
+                                                        "type": "string",
+                                                        "example": "5ca2d56d-79ad-41e3-889f-0cdc12c77014"
+                                                    },
+                                                    "seller_id": {
+                                                        "type": "string",
+                                                        "example": "9390cea0-6fa6-41f3-a003-b5c3fb69db3a"
+                                                    },
+                                                    "token_type": {
+                                                        "type": "string",
+                                                        "example": "XRP"
+                                                    },
+                                                    "amount": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "per_price": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 1999.99
+                                                    },
+                                                    "create_date": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-16 10:23:53"
+                                                    },
+                                                    "update_date": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-05-16 10:23:53"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Not found data"
+                    }
+                }
+            }
+        },
+        "/api/transactions/insert": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Insert new transaction (mockup api)",
+                "operationId": "eea7d27d831e444fb9dd687136ad1119",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "transaction_type",
+                                    "token_type",
+                                    "status",
+                                    "payment_type",
+                                    "system_type",
+                                    "pay_currency",
+                                    "amount",
+                                    "per_price",
+                                    "total_price",
+                                    "sender_id",
+                                    "receiver_id",
+                                    "sell_order_id"
+                                ],
+                                "properties": {
+                                    "transaction_type": {
+                                        "description": "value: buy,sell,transfer,receive",
+                                        "type": "string",
+                                        "example": "buy"
+                                    },
+                                    "token_type": {
+                                        "description": "value: BTC,ETH,XRP,DOGE",
+                                        "type": "string",
+                                        "example": "XRP"
+                                    },
+                                    "status": {
+                                        "description": "value: pending,processing,completed,failed",
+                                        "type": "string",
+                                        "example": "pending"
+                                    },
+                                    "payment_type": {
+                                        "description": "value: qrcode,credit",
+                                        "type": "string",
+                                        "example": "credit"
+                                    },
+                                    "system_type": {
+                                        "description": "value: internal,external",
+                                        "type": "string",
+                                        "example": "internal"
+                                    },
+                                    "pay_currency": {
+                                        "type": "string",
+                                        "example": "USD"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "per_price": {
+                                        "type": "decimal",
+                                        "example": 500
+                                    },
+                                    "total_price": {
+                                        "type": "number",
+                                        "example": 1000
+                                    },
+                                    "sender_id": {
+                                        "type": "string",
+                                        "example": "abc527bd-79d0-4799-a883-9c7257990d3a"
+                                    },
+                                    "receiver_id": {
+                                        "type": "string",
+                                        "example": "3535a148-2431-48ea-a1bf-314e52a8fb56"
+                                    },
+                                    "sell_order_id": {
+                                        "type": "string",
+                                        "example": "5ca2d56d-79ad-41e3-889f-0cdc12c77014"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 201
+                                        },
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "9390cea0-6fa6-41f3-a003-b5c3fb69db3a"
+                                                },
+                                                "create_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-16 11:35:59"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Insert transaction failed"
+                    }
+                }
+            }
+        },
+        "/api/transactions/list": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Transactions List",
+                "operationId": "04c19f98b51f99c74e79bee33700b513",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "member_id": {
+                                        "type": "string",
+                                        "example": "abc527bd-79d0-4799-a883-9c7257990d3a"
+                                    },
+                                    "keyword": {
+                                        "description": "Search by transaction_id, receiver_name",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "sort": {
+                                        "description": "Sort by last update_date => value: asc,desc",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "page": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "limit": {
+                                        "type": "string",
+                                        "example": "10"
+                                    },
+                                    "transaction_type": {
+                                        "description": "value: buy,sell,transfer,receive",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "token_type": {
+                                        "description": "value: BTC,ETH,XRP,DOGE",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "status": {
+                                        "description": "value: pending,processing,completed,failed",
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "payment_type": {
+                                        "description": "value: qrcode,credit",
+                                        "type": "string",
+                                        "example": "qrcode,credit"
+                                    },
+                                    "system_type": {
+                                        "description": "value: internal,external",
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": ""
+                                    },
+                                    "pay_currency": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "THB"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "transaction_id": {
+                                                    "type": "string",
+                                                    "example": "abc527bd-79d0-4799-a883-9c7257990d3\u0e34b"
+                                                },
+                                                "transaction_type": {
+                                                    "type": "string",
+                                                    "example": "buy"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "BTC"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "pending"
+                                                },
+                                                "payment_type": {
+                                                    "type": "string",
+                                                    "example": "qrcode"
+                                                },
+                                                "system_type": {
+                                                    "type": "string",
+                                                    "example": "internal"
+                                                },
+                                                "pay_currency": {
+                                                    "type": "string",
+                                                    "example": "THB"
+                                                },
+                                                "amount": {
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                },
+                                                "per_price": {
+                                                    "type": "decimal",
+                                                    "example": "3457601.59"
+                                                },
+                                                "total_price": {
+                                                    "type": "decimal",
+                                                    "example": "6915203.18"
+                                                },
+                                                "sender_id": {
+                                                    "type": "string",
+                                                    "example": "abc527bd-79d0-4799-a883-9c7257990d3a"
+                                                },
+                                                "receiver_id": {
+                                                    "type": "string",
+                                                    "example": "abc527bd-79d0-4799-a883-9c7257990d3b"
+                                                },
+                                                "sell_order_id": {
+                                                    "type": "string",
+                                                    "example": "9390cea0-6fa6-41f3-a003-b5c3fb69db3a"
+                                                },
+                                                "create_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-15 19:32:20"
+                                                },
+                                                "update_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-05-15 19:32:20"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Not found data."
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Member"
+        },
+        {
+            "name": "Receiver"
+        },
+        {
+            "name": "Sell Orders"
+        },
+        {
+            "name": "Transactions"
+        }
+    ]
+}
