@@ -30,16 +30,16 @@
 ----------------------------------------------------
 ## คำสั่ง
 
-- สำหรับ Run 
+- สำหรับ Run <br>
     php artisan serve
 
-- สำหรับ ล้างแคช Route
-    php artisan route:clear
-    php artisan optimize:clear
-    php artisan config:clear
+- สำหรับ ล้างแคช Route <br>
+    php artisan route:clear <br>
+    php artisan optimize:clear <br>
+    php artisan config:clear <br>
     php artisan cache:clear
 
-- สำหรับ Update swagger doc เมื่อมีการแก้ไข หรือเพิ่ม comment description
+- สำหรับ Update swagger doc เมื่อมีการแก้ไข หรือเพิ่ม comment description <br>
     composer swagger:generate
 
 ----------------------------------------------------
