@@ -7,40 +7,38 @@
 </p>
 
 ----------------------------------------------------
-## ขั้นตอนการติดตั้ง
-    
-    git clone https://github.com/RocketGoose008/laravel-api.git
 
-----------------------------------------------------
 ## ตรวจสอบและติดตั้ง
 
-- PHP (8.4.7) 
-    windows : https://windows.php.net/download/ 
-    macOs : brew install php
-
-- Composer (2.8.9) 
-    composer install
-
-- Laravel version 5.14.2 
-    composer global require laravel/installer
-
-- Node.js (18.20.4.) & NPM (10.7.0) 
-    https://nodejs.org/en/ 
+- PHP version 8.4.7
+- Composer version 2.8.9
+- Node.js version 18.20.4.
+- NPM version 10.7.0
 
 ----------------------------------------------------
-## คำสั่ง
 
-- สำหรับ Run 
+## ขั้นตอนการติดตั้ง
+
+1. git clone
+
+1. ติดตั้ง PHP
+
+2. ติดตั้ง Composer 
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
+
+3. ติดตั้ง Laravel
+    composer global require laravel/installer
+
+4. คำสั่ง Run
     php artisan serve
 
-- สำหรับ ล้างแคช Route
+5. คำสั่งสำหรับ ล้างแคช Route
     php artisan route:clear
     php artisan optimize:clear
     php artisan config:clear
     php artisan cache:clear
-
-- สำหรับ Update swagger doc เมื่อมีการแก้ไข หรือเพิ่ม comment description
-    composer swagger:generate
 
 ----------------------------------------------------
 
@@ -61,9 +59,6 @@
 4. Transaction : `รายการ การทำธุรกรรม`
     - /api/transactions/insert : ใช้สร้างข้อมูลตัวอย่าง รายการการทำธุรกรรม ซื้อขายแลกเปลี่ยนเหรียญคริปโต
     - /api/transactions/list : ใช้ดึงข้อมูล รายการการทำธุรกรรม ซื้อขายแลกเปลี่ยนเหรียญคริปโต
-
-----------------------------------------------------
-
-## การเก็บข้อมูล
-    ไม่เชื่อมต่อ Database จริง เก็บข้อมูลทั้งหมดไว้ในไฟล์ json
-- 
+        
+```bash
+php -v
