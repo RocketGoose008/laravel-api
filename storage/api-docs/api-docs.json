@@ -35,8 +35,9 @@
                                         "example": "1198899232111"
                                     },
                                     "member_type": {
+                                        "description": "value: internal,external",
                                         "type": "string",
-                                        "example": "internal,external"
+                                        "example": ""
                                     },
                                     "firstname": {
                                         "type": "string",
@@ -337,8 +338,9 @@
                                         "example": "abc527bd-79d0-4799-a883-9c7257990d3b"
                                     },
                                     "token_type": {
+                                        "description": "BTC,ETH,XRP,DOGE",
                                         "type": "string",
-                                        "example": "BTC,ETH,XRP,DOGE"
+                                        "example": ""
                                     },
                                     "amount": {
                                         "type": "integer",
@@ -687,17 +689,15 @@
                                     "payment_type": {
                                         "description": "value: qrcode,credit",
                                         "type": "string",
-                                        "example": "qrcode,credit"
+                                        "example": ""
                                     },
                                     "system_type": {
                                         "description": "value: internal,external",
                                         "type": "string",
-                                        "format": "email",
                                         "example": ""
                                     },
                                     "pay_currency": {
                                         "type": "string",
-                                        "format": "email",
                                         "example": "THB"
                                     }
                                 },

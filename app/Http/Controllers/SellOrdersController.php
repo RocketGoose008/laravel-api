@@ -25,7 +25,7 @@ class SellOrdersController extends Controller
      *                  "per_price"
      *             },
      *             @OA\Property(property="member_id", type="string", example="abc527bd-79d0-4799-a883-9c7257990d3b"),
-     *             @OA\Property(property="token_type", type="string", example="BTC,ETH,XRP,DOGE"),
+     *             @OA\Property(property="token_type", type="string", example="", description="BTC,ETH,XRP,DOGE"),
      *             @OA\Property(property="amount", type="integer", example=10),
      *             @OA\Property(property="per_price", type="number", format="float", example=1999.99),
      *         )

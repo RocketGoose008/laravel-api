@@ -30,7 +30,7 @@ class MemberController extends Controller
      *                  "accept_consent"
      *             },
      *             @OA\Property(property="personal_id", type="string", example="1198899232111"),
-     *             @OA\Property(property="member_type", type="string", example="internal,external"),
+     *             @OA\Property(property="member_type", type="string", example="", description="value: internal,external"),
      *             @OA\Property(property="firstname", type="string", example="Member"),
      *             @OA\Property(property="lastname", type="string", example="K"),
      *             @OA\Property(property="username", type="string", example="member_K"),

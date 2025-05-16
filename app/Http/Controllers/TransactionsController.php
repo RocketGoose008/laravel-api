@@ -133,9 +133,9 @@ class TransactionsController extends Controller
      *             @OA\Property(property="transaction_type", type="string", example="", description="value: buy,sell,transfer,receive"),
      *             @OA\Property(property="token_type", type="string", example="", description="value: BTC,ETH,XRP,DOGE"),
      *             @OA\Property(property="status", type="string", example="", description="value: pending,processing,completed,failed"),
-     *             @OA\Property(property="payment_type", type="string", example="qrcode,credit", description="value: qrcode,credit"),
-     *             @OA\Property(property="system_type", type="string", format="email", example="", description="value: internal,external"),
-     *             @OA\Property(property="pay_currency", type="string", format="email", example="THB"),
+     *             @OA\Property(property="payment_type", type="string", example="", description="value: qrcode,credit"),
+     *             @OA\Property(property="system_type", type="string", example="", description="value: internal,external"),
+     *             @OA\Property(property="pay_currency", type="string", example="THB"),
      *         )
      *     ),
      *     @OA\Response(
