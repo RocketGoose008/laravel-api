@@ -3,53 +3,77 @@
 </h1>
 
 <p align="center">
-  ขั้นตอนการติดตั้งและรันโปรเจกต์ Laravel 
+  Demo API การซื้อขายเหรียญ Crypto <br>
+  Laravel ด้วย Docker และ Swagger API Documentation
 </p>
 
-----------------------------------------------------
-## ขั้นตอนการติดตั้ง
-    
-    git clone https://github.com/RocketGoose008/laravel-api.git
+---
 
-----------------------------------------------------
+## ขั้นตอนการติดตั้ง
+```bash
+    git clone https://github.com/RocketGoose008/laravel-api.git
+```   
+
+---
+
 ## ตรวจสอบและติดตั้ง
 
-- PHP (8.4.7) 
+- PHP (8.4.7) <br>
     windows : https://windows.php.net/download/ 
-    macOs : brew install php
+    <br>
+    macOs : 
+    ```bash 
+    brew install php 
+    ```
 
-- Composer (2.8.9) 
+- Composer (2.8.9) <br>
+```bash
     composer install
+```
 
-- Laravel version 5.14.2 
-    composer global require laravel/installer
+- Laravel version 5.14.2 <br>
+```bash
+    composer global require laravel/installer 
+```
 
-- Node.js (18.20.4.) & NPM (10.7.0) 
-    https://nodejs.org/en/ 
+- Node.js (18.20.4.) & NPM (10.7.0) <br>
+    https://nodejs.org/en/  <br>
 
-----------------------------------------------------
+---
+
 ## คำสั่ง
 
-- สำหรับ Run <br>
+- สำหรับ Run ด้วย Docker <br>
+```bash
+    docker build -t laravel-app .
+    docker run -p 8080:80 laravel-app
+```
+
+- สำหรับ Run (local development) <br>
+```bash
     php artisan serve
+```
 
-- สำหรับ ล้างแคช Route <br>
-    php artisan route:clear <br>
-    php artisan optimize:clear <br>
-    php artisan config:clear <br>
+- สำหรับ ล้างแคช ของ Laravel <br>
+```bash
+    php artisan route:clear 
+    php artisan optimize:clear 
+    php artisan config:clear 
     php artisan cache:clear
+```
 
-- สำหรับ Update swagger doc เมื่อมีการแก้ไข หรือเพิ่ม comment description <br>
-    composer swagger:generate
+- สร้างหรืออัพเดต Swagger API Documentation <br>
+```bash
+    php artisan l5-swagger:generate
+```
+---
 
-----------------------------------------------------
+## API
+หลังจาก Run Project ขึ้นมาได้แล้ว 
+เข้าไปทดสอบ API ที่ > http://localhost:8080/api/documentation
 
-## ขั้นตอนเรียก API
-    หลังจาก Run Project ขึ้นมาได้แล้ว
-    เข้าไปทดสอบ API ที่ > http://localhost:8000/api/documentation 
-
-## การทำงานของ API
-    API ทั้งหมดแบ่งเป็น 4 หมวด
+### การทำงานของ API
+API ทั้งหมดแบ่งเป็น 4 หมวด
 1. Member : `สมาชิก`
     - /api/member/register : ใช้สร้างข้อมูล สมาชิก
 2. Receiver : `ผู้รับเงิน`
@@ -62,8 +86,8 @@
     - /api/transactions/insert : ใช้สร้างข้อมูลตัวอย่าง รายการการทำธุรกรรม ซื้อขายแลกเปลี่ยนเหรียญคริปโต
     - /api/transactions/list : ใช้ดึงข้อมูล รายการการทำธุรกรรม ซื้อขายแลกเปลี่ยนเหรียญคริปโต
 
-----------------------------------------------------
+---
 
 ## การเก็บข้อมูล
-    ไม่เชื่อมต่อ Database จริง เก็บข้อมูลทั้งหมดไว้ในไฟล์ json
-    ไฟล์จะถูกสร้างเองที่ storage/app/private/ เมื่อมีการยิง api create ต่างๆ 
+ไม่เชื่อมต่อ Database จริง เก็บข้อมูลทั้งหมดไว้ในไฟล์ json <br>
+ไฟล์จะถูกสร้างเองที่ storage/app/private/ เมื่อมีการยิง api create ต่างๆ 
