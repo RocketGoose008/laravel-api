@@ -42,16 +42,21 @@
 - Docker Desktop <br>
     https://docs.docker.com/get-docker/
     <br>
-    หมายเหตุ: สำหรับการ Run ด้วย Docker 
-    
+    หมายเหตุ: สำหรับการ Run ด้วย Docker และ Docker Compose
+
 ---
 
 ## คำสั่ง
 
-- สำหรับ Run ด้วย Docker <br>
+- สำหรับ Run ด้วย Docker (แบบ Build แล้ว Run เอง) <br>
 ```bash
     docker build -t laravel-app .
     docker run -p 8080:80 laravel-app
+```
+
+- สำหรับ Run ด้วย Docker Compose (แนะนำ) <br>
+```bash
+    docker-compose up --build
 ```
 
 - สำหรับ Run (local development) <br>
