@@ -1,12 +1,18 @@
 #!/bin/sh
 set -e
 
+# แทน port 80 ด้วย $PORT ที่ railway กำหนด (ถ้ามี)
+if [ -n "$PORT" ]; then
+  sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf
+  sed -i "s/:80/:${PORT}/" /etc/apache2/sites-available/000-default.conf
+fi
+
 echo "Running Laravel migrations..."
-php artisan migrate --force
+php artisan migrate --force || true
 
 echo "Clearing and caching config & routes..."
 php artisan config:cache
 php artisan route:cache
 
-echo "Starting Apache in foreground..."
+echo "Starting Apache on port ${PORT:-80}..."
 apache2-foreground
