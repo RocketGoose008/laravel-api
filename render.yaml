@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: laravel-app
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
