@@ -4,8 +4,7 @@
 
 <p align="center">
   Demo API ระบบซื้อขายเหรียญคริปโต <br>
-  พัฒนาด้วย Laravel รันผ่าน Docker<br>
-  และทดสอบ API ด้วย Swagger
+  พัฒนาด้วย Laravel รันผ่าน Docker และทดสอบ API ด้วย Swagger
 </p>
 
 ---
