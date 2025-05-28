@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Optional: Set RewriteBase if app is in subfolder
+    # RewriteBase /
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -17,6 +20,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
+
+    # Prevent direct access to .env, .git, etc.
+    RewriteRule "(^|/)\." - [F]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

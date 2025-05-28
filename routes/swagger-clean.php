@@ -18,6 +18,11 @@ if (!file_exists($file)) {
 
 $json = json_decode(file_get_contents($file), true);
 
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo "Error decoding JSON: " . json_last_error_msg() . "\n";
+    exit(1);
+}
+
 if (!isset($json['tags'])) {
     echo "No tags found in Swagger file.\n";
     exit(0);
