@@ -3,8 +3,9 @@
 </h1>
 
 <p align="center">
-  Demo API การซื้อขายเหรียญ Crypto <br>
-  Laravel ด้วย Docker และ Swagger API Documentation
+  Demo API ระบบซื้อขายเหรียญคริปโต <br>
+  พัฒนาด้วย Laravel รันผ่าน Docker<br>
+  และทดสอบ API ด้วย Swagger
 </p>
 
 ---
