@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-# แทน port 80 ด้วย $PORT ที่ railway กำหนด (ถ้ามี)
+# Set Apache to listen on the port provided by Railway
 if [ -n "$PORT" ]; then
   sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf
   sed -i "s/:80/:${PORT}/" /etc/apache2/sites-available/000-default.conf
