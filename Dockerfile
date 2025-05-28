@@ -27,8 +27,8 @@ COPY . /var/www/html
 # Ensure Apache serves from public/
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
-# คัดลอกไฟล์ Laravel เข้า container
-COPY . .
+# คัดลอกไฟล์ Laravel เข้า container (อันนี้ซ้ำกับข้างบน ควรลบอันนี้ออก)
+# COPY . .
 
 # ติดตั้ง dependencies
 RUN composer install --no-dev --optimize-autoloader
@@ -37,5 +37,15 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
 
-# EXPOSE port 
-EXPOSE 80
+# รับพอร์ตจาก environment variable PORT (default เป็น 80)
+ENV PORT 80
+
+# แก้ Apache config ให้ฟังพอร์ตตาม PORT env
+RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf && \
+    sed -i "s/:80/:${PORT}/" /etc/apache2/sites-available/000-default.conf
+
+# expose port จาก env
+EXPOSE ${PORT}
+
+# ใช้คำสั่ง start Apache แบบ foreground ตามปกติ
+CMD ["apache2-foreground"]

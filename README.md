@@ -39,6 +39,11 @@
 - Node.js (18.20.4.) & NPM (10.7.0) <br>
     https://nodejs.org/en/  <br>
 
+- Docker Desktop <br>
+    https://docs.docker.com/get-docker/
+    <br>
+    หมายเหตุ: สำหรับการ Run ด้วย Docker 
+    
 ---
 
 ## คำสั่ง
